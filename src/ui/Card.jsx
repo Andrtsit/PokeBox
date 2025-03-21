@@ -1,5 +1,5 @@
 function Card({ card }) {
-  return <img src={card.images.small}></img>;
+  return <img src={card.pokemonImage}></img>;
 }
 
 export default Card;

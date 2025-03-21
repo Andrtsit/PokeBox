@@ -2,11 +2,11 @@ import { NavLink } from "react-router";
 
 function Sidebar() {
   return (
-    <aside className="w-[10%] flex h-dvh justify-center items-center flex-col bg-amber-50 gap-6">
+    <aside className="w-[10%] flex h-dvh justify-center items-center flex-col bg-amber-50 gap-6 font-display">
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "bg-blue-500 text-white p-2 rounded"
+            ? "bg-red-500 text-white p-2 rounded"
             : "bg-blue-50 p-2 rounded"
         }
         to="/dashboard"
@@ -16,7 +16,7 @@ function Sidebar() {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "bg-blue-500 text-white p-2 rounded"
+            ? "bg-red-500 text-white p-2 rounded"
             : "bg-blue-50 p-2 rounded"
         }
         to="/settings"
@@ -26,7 +26,7 @@ function Sidebar() {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "bg-blue-500 text-white p-2 rounded"
+            ? "bg-red-500 text-white p-2 rounded"
             : "bg-blue-50 p-2 rounded"
         }
         to="/collection"
@@ -36,7 +36,7 @@ function Sidebar() {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "bg-blue-500 text-white p-2 rounded"
+            ? "bg-red-500 text-white p-2 rounded"
             : "bg-blue-50 p-2 rounded"
         }
         to="/unboxing"

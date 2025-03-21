@@ -6,7 +6,7 @@ function AppLayout() {
   const [isLogged, setIsLogged] = useState(false);
   if (!isLogged)
     return (
-      <div className="flex h-dvh w-dvw justify-center items-center text-3xl font-semibold">
+      <div className=" font-display flex h-dvh w-dvw justify-center items-center text-3xl font-semibold">
         <button className="cursor-pointer" onClick={() => setIsLogged(true)}>
           Login
         </button>

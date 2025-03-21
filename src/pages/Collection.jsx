@@ -1,27 +1,33 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchCards } from "../helpers/FetchCards";
 import Card from "../ui/Card";
+import { getPokemons } from "../services/apiPokemons";
 
 function Collection() {
   const {
-    isLoading,
+    isFetching,
     data: cards,
     error,
   } = useQuery({
-    queryKey: ["cards"],
-    queryFn: fetchCards,
+    queryKey: ["pokemons"],
+    queryFn: getPokemons,
   });
 
-  if (isLoading)
+  if (isFetching)
     return (
       <div className="flex  bg-gray-800 text-3xl  justify-center items-center font-semibold w-dvw text-white">
         Loading....
       </div>
     );
-  console.log(error, cards.data);
+  if (error)
+    return (
+      <div className="flex  bg-gray-800 text-3xl  justify-center items-center font-semibold w-dvw text-white">
+        Failed to Load
+      </div>
+    );
+
   return (
     <div className="bg-gray-800 p-8 grid gap-10 grid-cols-6 font-display w-dvw overflow-auto">
-      {cards.data.map((card) => (
+      {cards.map((card) => (
         <Card card={card} key={card.id} />
       ))}
     </div>
