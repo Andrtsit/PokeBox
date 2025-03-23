@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Card from "../ui/Card";
 import { getPokemons } from "../services/apiPokemons";
+import Loader from "../ui/Loader";
 
 function Collection() {
   const {
@@ -12,12 +13,7 @@ function Collection() {
     queryFn: getPokemons,
   });
 
-  if (isFetching)
-    return (
-      <div className="flex  bg-gray-800 text-3xl  justify-center items-center font-semibold w-dvw text-white">
-        Loading....
-      </div>
-    );
+  if (isFetching) return <Loader />;
   if (error)
     return (
       <div className="flex  bg-gray-800 text-3xl  justify-center items-center font-semibold w-dvw text-white">
