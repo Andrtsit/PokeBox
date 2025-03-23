@@ -2,7 +2,8 @@
 
 ## 🚀 Project Overview
 
-This is a Pokémon-themed web application where users can log in, manage their collection of Pokémon cards and unbox new cards daily. Built with modern web technologies, it offers an engaging experience for Pokémon fans.
+This is a Pokémon-themed web application where users can log in, vkew their collection of Pokémon cards and unbox new cards daily. Built with modern web technologies, it offers an engaging experience for Pokémon fans.
+The collection includes 188 pokemon from the base collection 
 
 ## 📌 Features
 
@@ -10,40 +11,36 @@ This is a Pokémon-themed web application where users can log in, manage their c
 - **Dashboard**: Overview of the user's account and collection.
 - **Unboxing**: Open a new pack of Pokémon cards every 24 hours.
 - **Collection**: Display all collected cards in a visually appealing grid.
-- **Settings**: Customize personal and account settings.
+- **Settings**: Account settings.
 
 ## 🛠 Tech Stack
 
 - **Frontend**:
 - **Styling**: Tailwind CSS
-- **State Management**:
-- **Backend**:
+- **State Management**: React Query
+- **Backend**: Supabase
 - **Hosting**: Netlify
 
 ## 📂 Project Structure
 
 ```
 ├── src
-│   ├── components   # Reusable components
+│   ├── services     # Supabase Setup  and  API calls
 │   ├── pages        # Page components (Dashboard, Unboxing, Collection, Settings)
 │   ├── routes       # React Router configuration
-│   ├── context      # Context API (if used)
-│   ├── store        # Redux store (if used)
 │   ├── utils        # Utility functions
 │   ├── assets       # Images, icons, etc.
-│   ├── styles       # Tailwind or Styled Components files
-│   ├── services     # Supabase API calls
 │   ├── App.jsx      # Main App component
 │   ├── main.jsx     # Entry point
-│   └── index.css    # Global styles (if using Tailwind)
+│   └── index.css    # Tailwind + Font import
 ```
 
 ## 🔧 Installation & Setup
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/pokemon-webapp.git
-   cd pokemon-webapp
+   git clone git@github.com:Andrtsit/PokeBox.git
+   cd PokeBox
    ```
 2. Install dependencies:
    ```sh
