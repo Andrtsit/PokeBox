@@ -9,7 +9,7 @@ function AppLayout() {
   return (
     <div className="h-dvh flex w-dvw bg-amber-100">
       <Sidebar />
-      <Outlet />
+      <Outlet isLogged={isLogged} />
     </div>
   );
 }
