@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import Modal from "./../ui/Modal"; // Your reusable modal component
+import LoginForm from "./../ui/LoginForm"; // Your login form component
 
 function Home({ isLogged, setIsLogged }) {
   const [isMuted, setIsMuted] = useState(true);
   const [overlayVisible, setOverlayVisible] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setOverlayVisible(false);
   }, []);
+
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.code === "Space") {
@@ -37,33 +41,46 @@ function Home({ isLogged, setIsLogged }) {
 
       {/* Black overlay that fades out */}
       <div
-        className={`absolute ease-in top-0 left-0 w-full h-full bg-black z-10 transition-opacity duration-3000 ${
+        className={`absolute ease-in top-0 left-0 w-full h-full bg-black z-10 transition-opacity duration-2000 ${
           overlayVisible ? "opacity-100" : "opacity-0"
         }`}
       ></div>
 
-      <div className="z-20 flex justify-between items-center w-screen text-l pr-4">
+      {/* Header with buttons */}
+      <div className="z-20 flex justify-between items-center w-screen md:p-4">
         <img
           src={
             isMuted ? "/svg/play-svgrepo-com.svg" : "/svg/pause-svgrepo-com.svg"
           }
           onClick={() => setIsMuted(!isMuted)}
-          className=" w-16 cursor-pointer"
+          className="w-12 md:w-16 cursor-pointer"
         />
-        <div className="flex border-4 ">
-          <p
-            onClick={() => setIsLogged(!isLogged)}
-            className="cursor-pointer block border-r-4 p-2 hover:bg-red-50"
+        <div className="flex border-4">
+          <button
+            onClick={() => setShowModal(true)}
+            className="cursor-pointer block border-r-4 p-2 bg-red-50 hover:bg-red-300"
           >
             Login
-          </p>
-          <p className=" block cursor-pointer hover:bg-red-100 p-2">Sign Up</p>
+          </button>
+          <button className="hover:text-black block text-white cursor-pointer bg-black hover:bg-red-300 p-2">
+            Sign Up
+          </button>
         </div>
       </div>
 
-      <p className="absolute top-11/12 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 cursor-pointer hover:bg-red-50 border-4 p-0">
-        INFO
-      </p>
+      {/* INFO Button */}
+      <div className="flex p-4 z-20 justify-center w-screen">
+        <button className="rounded-full hover:text-black block text-white cursor-pointer bg-black hover:bg-red-300 p-2 max-w-[300px] mx-auto">
+          INFO
+        </button>
+      </div>
+
+      {/* Modal with Login Form */}
+      {showModal && (
+        <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+          <LoginForm isLogged={isLogged} setIsLogged={setIsLogged} />
+        </Modal>
+      )}
     </div>
   );
 }
